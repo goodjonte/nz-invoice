@@ -22,6 +22,9 @@ export default function ClassicTemplate({ invoice }: { invoice: InvoiceData }) {
         <h1 className="text-2xl font-bold text-gray-900 uppercase tracking-wide">
           {businessDetails.name || "Your Business Name"}
         </h1>
+        {businessDetails.gstNumber && (
+          <p className="text-sm text-gray-500 mt-1">GST No: {businessDetails.gstNumber}</p>
+        )}
         {businessDetails.nzbn && (
           <p className="text-sm text-gray-500 mt-1">NZBN: {businessDetails.nzbn}</p>
         )}
@@ -38,7 +41,7 @@ export default function ClassicTemplate({ invoice }: { invoice: InvoiceData }) {
 
       {/* Invoice Title */}
       <h2 className="text-xl font-bold text-center text-gray-800 uppercase tracking-widest mb-6">
-        Tax Invoice
+        {includeGst ? "Tax Invoice" : "Invoice"}
       </h2>
 
       {/* Details */}

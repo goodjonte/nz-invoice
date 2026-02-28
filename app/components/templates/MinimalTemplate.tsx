@@ -23,15 +23,16 @@ export default function MinimalTemplate({ invoice }: { invoice: InvoiceData }) {
           <h1 className="text-xl font-light text-gray-900">
             {businessDetails.name || "Your Business Name"}
           </h1>
+          {businessDetails.gstNumber && (
+            <p className="text-xs text-gray-400 mt-1">GST No: {businessDetails.gstNumber}</p>
+          )}
           {businessDetails.nzbn && (
-            <p className="text-xs text-gray-400 mt-1">
-              NZBN: {businessDetails.nzbn}
-            </p>
+            <p className="text-xs text-gray-400 mt-1">NZBN: {businessDetails.nzbn}</p>
           )}
         </div>
         <div className="text-right">
           <p className="text-xs text-gray-400 uppercase tracking-widest">
-            Invoice
+            {includeGst ? "Tax Invoice" : "Invoice"}
           </p>
           <p className="text-lg text-gray-700 mt-1">{invoice.invoiceNumber}</p>
         </div>

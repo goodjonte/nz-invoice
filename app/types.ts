@@ -8,6 +8,7 @@ export interface LineItem {
 export interface BusinessDetails {
   name: string;
   nzbn: string;
+  gstNumber: string;
   address: string;
   email: string;
   phone: string;
@@ -36,6 +37,7 @@ export const GST_RATE = 0.15;
 export const defaultBusinessDetails: BusinessDetails = {
   name: "",
   nzbn: "",
+  gstNumber: "",
   address: "",
   email: "",
   phone: "",

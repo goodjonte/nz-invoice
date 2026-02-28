@@ -110,6 +110,16 @@ export default function Home() {
                 onChange={(e) => updateBusiness({ nzbn: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
+              <div>
+                <input
+                  type="text"
+                  placeholder="GST Number (required for tax invoices)"
+                  value={invoice.businessDetails.gstNumber}
+                  onChange={(e) => updateBusiness({ gstNumber: e.target.value })}
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+                <p className="text-xs text-gray-400 mt-1">Format: 123-456-789. Required by IRD for valid tax invoices.</p>
+              </div>
               <textarea
                 placeholder="Address"
                 value={invoice.businessDetails.address}
@@ -264,70 +274,56 @@ export default function Home() {
             </h2>
             <div className="space-y-3">
               {invoice.lineItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex gap-2 items-start"
-                >
+                <div key={item.id} className="border border-gray-200 rounded-lg p-3 space-y-2">
                   <input
                     type="text"
                     placeholder="Description"
                     value={item.description}
-                    onChange={(e) =>
-                      updateLineItem(item.id, {
-                        description: e.target.value,
-                      })
-                    }
-                    className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    onChange={(e) => updateLineItem(item.id, { description: e.target.value })}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   />
-                  <input
-                    type="number"
-                    placeholder="Qty"
-                    min="0"
-                    step="1"
-                    value={item.quantity}
-                    onChange={(e) =>
-                      updateLineItem(item.id, {
-                        quantity: parseFloat(e.target.value) || 0,
-                      })
-                    }
-                    className="w-20 border border-gray-300 rounded-lg px-3 py-2 text-sm text-right focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                  <input
-                    type="number"
-                    placeholder="Price"
-                    min="0"
-                    step="0.01"
-                    value={item.unitPrice || ""}
-                    onChange={(e) =>
-                      updateLineItem(item.id, {
-                        unitPrice: parseFloat(e.target.value) || 0,
-                      })
-                    }
-                    className="w-28 border border-gray-300 rounded-lg px-3 py-2 text-sm text-right focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                  <div className="w-24 py-2 text-sm text-right text-gray-600">
-                    {formatCurrency(item.quantity * item.unitPrice)}
-                  </div>
-                  <button
-                    onClick={() => removeLineItem(item.id)}
-                    disabled={invoice.lineItems.length <= 1}
-                    className="p-2 text-red-400 hover:text-red-600 disabled:opacity-30 disabled:cursor-not-allowed"
-                    title="Remove item"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  <div className="flex gap-2 items-center">
+                    <div className="flex-1">
+                      <label className="text-xs text-gray-500 mb-1 block">Qty</label>
+                      <input
+                        type="number"
+                        placeholder="Qty"
+                        min="0"
+                        step="1"
+                        value={item.quantity}
+                        onChange={(e) => updateLineItem(item.id, { quantity: parseFloat(e.target.value) || 0 })}
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-right focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       />
-                    </svg>
-                  </button>
+                    </div>
+                    <div className="flex-1">
+                      <label className="text-xs text-gray-500 mb-1 block">Unit Price</label>
+                      <input
+                        type="number"
+                        placeholder="0.00"
+                        min="0"
+                        step="0.01"
+                        value={item.unitPrice || ""}
+                        onChange={(e) => updateLineItem(item.id, { unitPrice: parseFloat(e.target.value) || 0 })}
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-right focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <label className="text-xs text-gray-500 mb-1 block">Amount</label>
+                      <div className="px-3 py-2 text-sm text-right text-gray-700 bg-gray-50 rounded-lg border border-gray-200">
+                        {formatCurrency(item.quantity * item.unitPrice)}
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => removeLineItem(item.id)}
+                      disabled={invoice.lineItems.length <= 1}
+                      className="mt-5 p-2 text-red-400 hover:text-red-600 disabled:opacity-30 disabled:cursor-not-allowed"
+                      title="Remove item"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

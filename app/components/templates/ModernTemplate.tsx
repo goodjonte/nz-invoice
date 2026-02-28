@@ -23,12 +23,17 @@ export default function ModernTemplate({ invoice }: { invoice: InvoiceData }) {
           <h1 className="text-2xl font-bold text-gray-900">
             {businessDetails.name || "Your Business Name"}
           </h1>
+          {businessDetails.gstNumber && (
+            <p className="text-sm text-gray-500">GST No: {businessDetails.gstNumber}</p>
+          )}
           {businessDetails.nzbn && (
             <p className="text-sm text-gray-500">NZBN: {businessDetails.nzbn}</p>
           )}
         </div>
         <div className="text-right">
-          <h2 className="text-3xl font-bold text-primary">INVOICE</h2>
+          <h2 className="text-3xl font-bold text-primary">
+            {includeGst ? "TAX INVOICE" : "INVOICE"}
+          </h2>
           <p className="text-gray-600 mt-1">{invoice.invoiceNumber}</p>
         </div>
       </div>
