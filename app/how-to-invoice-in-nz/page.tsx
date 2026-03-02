@@ -5,22 +5,53 @@ export const metadata: Metadata = {
   title: "How to Invoice in NZ: A Guide for Freelancers and Sole Traders",
   description:
     "Complete guide to invoicing in New Zealand. Learn what to include on your invoices, GST requirements, payment terms, and best practices for NZ freelancers.",
-  keywords: [
-    "how to invoice NZ",
-    "NZ invoice guide",
-    "freelancer invoice NZ",
-    "sole trader invoice NZ",
-    "invoicing New Zealand",
-  ],
+  alternates: { canonical: "https://nzinvoice.co.nz/how-to-invoice-in-nz" },
   openGraph: {
     title: "How to Invoice in NZ: A Guide for Freelancers and Sole Traders",
-    description:
-      "Everything NZ freelancers and sole traders need to know about creating professional invoices.",
+    description: "Everything NZ freelancers and sole traders need to know about creating professional invoices.",
+    url: "https://nzinvoice.co.nz/how-to-invoice-in-nz",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Invoice in NZ: A Guide for Freelancers and Sole Traders",
+      "description": "Complete guide to invoicing in New Zealand. Learn what to include on your invoices, GST requirements, payment terms, and best practices for NZ freelancers.",
+      "url": "https://nzinvoice.co.nz/how-to-invoice-in-nz",
+      "inLanguage": "en-NZ",
+      "publisher": { "@type": "Organization", "name": "NZ Invoice Generator", "url": "https://nzinvoice.co.nz" },
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What do I need to include on an invoice in New Zealand?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An NZ invoice should include your business name and contact details, the client's name and address, an invoice number, the date, a description of goods or services, the amount due, and your payment details. If you are GST registered, you must also include your GST number and show the GST component separately." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to charge GST on my invoices in NZ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You only need to charge GST if you are registered for GST. Registration is compulsory when your annual turnover exceeds $60,000. If you are not registered, you cannot charge GST on your invoices." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should I keep invoices in NZ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The IRD requires you to keep business records including invoices for at least 7 years." }
+        }
+      ]
+    }
+  ]
 };
 
 export default function HowToInvoicePage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold text-gray-900 mb-6">
         How to Invoice in New Zealand
@@ -230,5 +261,6 @@ export default function HowToInvoicePage() {
         </ul>
       </div>
     </div>
+      </>
   );
 }

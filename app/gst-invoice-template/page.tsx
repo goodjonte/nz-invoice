@@ -5,21 +5,54 @@ export const metadata: Metadata = {
   title: "Free NZ GST Invoice Template",
   description:
     "Download a free NZ GST invoice template. Includes automatic 15% GST calculations, NZBN support, and multiple professional designs. No sign-up needed.",
-  keywords: [
-    "NZ GST invoice template",
-    "free invoice template NZ",
-    "GST invoice template download",
-    "New Zealand invoice template",
-  ],
+  alternates: { canonical: "https://nzinvoice.co.nz/gst-invoice-template" },
   openGraph: {
     title: "Free NZ GST Invoice Template",
     description:
       "Download a free NZ GST invoice template with automatic 15% GST calculations and multiple professional designs.",
+    url: "https://nzinvoice.co.nz/gst-invoice-template",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Free NZ GST Invoice Template",
+      "description": "Download a free NZ GST invoice template. Includes automatic 15% GST calculations, NZBN support, and multiple professional designs.",
+      "url": "https://nzinvoice.co.nz/gst-invoice-template",
+      "inLanguage": "en-NZ",
+      "publisher": { "@type": "Organization", "name": "NZ Invoice Generator", "url": "https://nzinvoice.co.nz" },
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What must a valid NZ GST invoice include?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A valid NZ tax invoice must include: the words 'tax invoice', your business name and GST number, the date issued, a description of goods or services, quantities, and the total including GST or the GST amount shown separately. For invoices over $1,000, the buyer's name and address are also required." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this NZ invoice template free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the NZ Invoice Generator is completely free. No sign-up, no download, and no cost. Your data stays in your browser and is never sent to a server." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this template if I am not GST registered?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can toggle GST off in the invoice generator to create a standard invoice without GST calculations." }
+        }
+      ]
+    }
+  ]
 };
 
 export default function GstInvoiceTemplatePage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold text-gray-900 mb-6">
         Free NZ GST Invoice Template
@@ -165,5 +198,6 @@ export default function GstInvoiceTemplatePage() {
         </ul>
       </div>
     </div>
+    </>
   );
 }

@@ -5,22 +5,58 @@ export const metadata: Metadata = {
   title: "What is an NZBN? New Zealand Business Number Explained",
   description:
     "Learn about the New Zealand Business Number (NZBN), how to find yours, why it matters, and how to include it on your invoices.",
-  keywords: [
-    "NZBN",
-    "New Zealand Business Number",
-    "NZBN lookup",
-    "what is NZBN",
-    "NZBN invoice",
-  ],
+  alternates: { canonical: "https://nzinvoice.co.nz/nzbn" },
   openGraph: {
     title: "What is an NZBN? New Zealand Business Number Explained",
-    description:
-      "Everything you need to know about the New Zealand Business Number (NZBN) and how to use it on your invoices.",
+    description: "Everything you need to know about the New Zealand Business Number (NZBN) and how to use it on your invoices.",
+    url: "https://nzinvoice.co.nz/nzbn",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "What is an NZBN? New Zealand Business Number Explained",
+      "description": "Learn about the New Zealand Business Number (NZBN), how to find yours, why it matters, and how to include it on your invoices.",
+      "url": "https://nzinvoice.co.nz/nzbn",
+      "inLanguage": "en-NZ",
+      "publisher": { "@type": "Organization", "name": "NZ Invoice Generator", "url": "https://nzinvoice.co.nz" },
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an NZBN?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An NZBN (New Zealand Business Number) is a unique 13-digit identifier for businesses in New Zealand. It is issued by the Companies Office and helps identify businesses across government agencies and private sector systems." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an NZBN the same as a GST number?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. An NZBN is a business identifier issued by the Companies Office. A GST number is issued by the IRD when you register for GST. They are different numbers and serve different purposes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to put my NZBN on my invoices?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An NZBN is not legally required on invoices. However, including it can help your clients identify your business and may be required by some larger organisations." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find my NZBN?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You can look up any NZBN using the New Zealand Business Number register at nzbn.govt.nz. Search by business name or company number to find the NZBN." }
+        }
+      ]
+    }
+  ]
 };
 
 export default function NzbnPage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-bold text-gray-900 mb-6">
         What is an NZBN?
@@ -235,5 +271,6 @@ export default function NzbnPage() {
         </ul>
       </div>
     </div>
+      </>
   );
 }

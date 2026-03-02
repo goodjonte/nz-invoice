@@ -21,16 +21,10 @@ export const metadata: Metadata = {
   },
   description:
     "Free online NZ GST invoice generator. Create professional invoices with 15% GST calculations, multiple templates, and instant PDF download. Perfect for NZ freelancers and sole traders.",
-  keywords: [
-    "NZ invoice template",
-    "GST invoice generator NZ",
-    "free invoice template NZ",
-    "NZ GST invoice",
-    "New Zealand invoice",
-    "GST calculator NZ",
-    "invoice generator",
-    "freelancer invoice NZ",
-  ],
+  metadataBase: new URL("https://nzinvoice.co.nz"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Free NZ Invoice Generator - GST Invoice Template",
     description:
@@ -38,6 +32,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NZ",
     siteName: "NZ Invoice Generator",
+    url: "https://nzinvoice.co.nz",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "NZ Invoice Generator - Free GST Invoice Tool",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free NZ Invoice Generator - GST Invoice Template",
+    description: "Create professional NZ GST invoices for free. Multiple templates, automatic 15% GST calculations, and instant PDF download.",
+    images: ["/og-image.svg"],
   },
 };
 
@@ -158,6 +167,19 @@ export default function RootLayout({
         gtag('js', new Date());
         gtag('config', 'G-8WMM118P8S');
       `}</Script>
+      <Script id="json-ld-webapp" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "NZ Invoice Generator",
+        "url": "https://nzinvoice.co.nz",
+        "description": "Free online NZ GST invoice generator. Create professional invoices with 15% GST calculations, multiple templates, and instant PDF download.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NZD" },
+        "featureList": ["GST calculation", "Multiple templates", "PDF export", "NZBN support"],
+        "inLanguage": "en-NZ",
+        "publisher": { "@type": "Organization", "name": "NZ Invoice Generator", "url": "https://nzinvoice.co.nz" }
+      })}} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
