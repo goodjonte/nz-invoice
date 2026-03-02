@@ -120,11 +120,18 @@ export default function Home() {
                 />
                 <p className="text-xs text-gray-400 mt-1">Format: 123-456-789. Required by IRD for valid tax invoices.</p>
               </div>
-              <textarea
-                placeholder="Address"
-                value={invoice.businessDetails.address}
-                onChange={(e) => updateBusiness({ address: e.target.value })}
-                rows={2}
+              <input
+                type="text"
+                placeholder="Address line 1 (e.g. 12 Example Street)"
+                value={invoice.businessDetails.addressLine1}
+                onChange={(e) => updateBusiness({ addressLine1: e.target.value })}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <input
+                type="text"
+                placeholder="Address line 2 (e.g. Auckland 1010)"
+                value={invoice.businessDetails.addressLine2}
+                onChange={(e) => updateBusiness({ addressLine2: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
               <div className="grid grid-cols-2 gap-3">
@@ -178,11 +185,18 @@ export default function Home() {
                 onChange={(e) => updateClient({ name: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
-              <textarea
-                placeholder="Client address"
-                value={invoice.clientDetails.address}
-                onChange={(e) => updateClient({ address: e.target.value })}
-                rows={2}
+              <input
+                type="text"
+                placeholder="Address line 1 (e.g. 12 Example Street)"
+                value={invoice.clientDetails.addressLine1}
+                onChange={(e) => updateClient({ addressLine1: e.target.value })}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <input
+                type="text"
+                placeholder="Address line 2 (e.g. Auckland 1010)"
+                value={invoice.clientDetails.addressLine2}
+                onChange={(e) => updateClient({ addressLine2: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
               <input

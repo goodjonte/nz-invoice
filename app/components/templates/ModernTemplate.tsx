@@ -46,7 +46,7 @@ export default function ModernTemplate({ invoice }: { invoice: InvoiceData }) {
           </h3>
           <p className="text-gray-900 font-medium">{businessDetails.name}</p>
           <p className="text-gray-600 text-sm whitespace-pre-line">
-            {businessDetails.address}
+            {businessDetails.addressLine1}{businessDetails.addressLine2 && <><br />{businessDetails.addressLine2}</>}
           </p>
           {businessDetails.email && (
             <p className="text-gray-600 text-sm">{businessDetails.email}</p>
@@ -63,7 +63,7 @@ export default function ModernTemplate({ invoice }: { invoice: InvoiceData }) {
             {clientDetails.name || "Client Name"}
           </p>
           <p className="text-gray-600 text-sm whitespace-pre-line">
-            {clientDetails.address}
+            {clientDetails.addressLine1}{clientDetails.addressLine2 && <><br />{clientDetails.addressLine2}</>}
           </p>
           {clientDetails.email && (
             <p className="text-gray-600 text-sm">{clientDetails.email}</p>

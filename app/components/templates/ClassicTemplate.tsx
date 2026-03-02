@@ -29,7 +29,7 @@ export default function ClassicTemplate({ invoice }: { invoice: InvoiceData }) {
           <p className="text-sm text-gray-500 mt-1">NZBN: {businessDetails.nzbn}</p>
         )}
         <p className="text-sm text-gray-600 mt-1 whitespace-pre-line">
-          {businessDetails.address}
+          {businessDetails.addressLine1}{businessDetails.addressLine2 && <><br />{businessDetails.addressLine2}</>}
         </p>
         {businessDetails.email && (
           <p className="text-sm text-gray-600">{businessDetails.email}</p>
@@ -52,7 +52,7 @@ export default function ClassicTemplate({ invoice }: { invoice: InvoiceData }) {
           </h3>
           <p className="font-medium">{clientDetails.name || "Client Name"}</p>
           <p className="text-sm text-gray-600 whitespace-pre-line">
-            {clientDetails.address}
+            {clientDetails.addressLine1}{clientDetails.addressLine2 && <><br />{clientDetails.addressLine2}</>}
           </p>
           {clientDetails.email && (
             <p className="text-sm text-gray-600">{clientDetails.email}</p>

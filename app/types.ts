@@ -9,7 +9,8 @@ export interface BusinessDetails {
   name: string;
   nzbn: string;
   gstNumber: string;
-  address: string;
+  addressLine1: string;
+  addressLine2: string;
   email: string;
   phone: string;
   logo: string;
@@ -17,7 +18,8 @@ export interface BusinessDetails {
 
 export interface ClientDetails {
   name: string;
-  address: string;
+  addressLine1: string;
+  addressLine2: string;
   email: string;
 }
 
@@ -38,7 +40,8 @@ export const defaultBusinessDetails: BusinessDetails = {
   name: "",
   nzbn: "",
   gstNumber: "",
-  address: "",
+  addressLine1: "",
+  addressLine2: "",
   email: "",
   phone: "",
   logo: "",
@@ -46,7 +49,8 @@ export const defaultBusinessDetails: BusinessDetails = {
 
 export const defaultClientDetails: ClientDetails = {
   name: "",
-  address: "",
+  addressLine1: "",
+  addressLine2: "",
   email: "",
 };
 

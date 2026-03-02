@@ -45,7 +45,7 @@ export default function MinimalTemplate({ invoice }: { invoice: InvoiceData }) {
             From
           </p>
           <p className="text-gray-700 whitespace-pre-line">
-            {businessDetails.address}
+            {businessDetails.addressLine1}{businessDetails.addressLine2 && <><br />{businessDetails.addressLine2}</>}
           </p>
           {businessDetails.email && (
             <p className="text-gray-500">{businessDetails.email}</p>
@@ -60,7 +60,7 @@ export default function MinimalTemplate({ invoice }: { invoice: InvoiceData }) {
           </p>
           <p className="text-gray-900">{clientDetails.name || "Client Name"}</p>
           <p className="text-gray-700 whitespace-pre-line">
-            {clientDetails.address}
+            {clientDetails.addressLine1}{clientDetails.addressLine2 && <><br />{clientDetails.addressLine2}</>}
           </p>
           {clientDetails.email && (
             <p className="text-gray-500">{clientDetails.email}</p>
