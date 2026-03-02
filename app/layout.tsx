@@ -85,6 +85,24 @@ function Header() {
             <Link href="/nzbn" className="text-gray-600 hover:text-primary">
               NZBN
             </Link>
+            <Link
+              href="/how-to-calculate-gst"
+              className="text-gray-600 hover:text-primary"
+            >
+              GST Calculator
+            </Link>
+            <Link
+              href="/freelancer-invoice-nz"
+              className="text-gray-600 hover:text-primary"
+            >
+              Freelancers
+            </Link>
+            <Link
+              href="/gst-registration-nz"
+              className="text-gray-600 hover:text-primary"
+            >
+              GST Registration
+            </Link>
           </nav>
         </div>
       </div>
@@ -132,6 +150,21 @@ function Footer() {
               <li>
                 <Link href="/nzbn" className="hover:text-white">
                   What is an NZBN?
+                </Link>
+              </li>
+              <li>
+                <Link href="/how-to-calculate-gst" className="hover:text-white">
+                  How to Calculate GST
+                </Link>
+              </li>
+              <li>
+                <Link href="/freelancer-invoice-nz" className="hover:text-white">
+                  Freelancer Invoice Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/gst-registration-nz" className="hover:text-white">
+                  GST Registration
                 </Link>
               </li>
             </ul>

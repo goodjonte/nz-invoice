@@ -158,6 +158,9 @@ export default function WhatIsGstPage() {
           <ul className="space-y-2">
             <li><Link href="/gst-invoice-template" className="text-primary hover:underline">Free NZ GST Invoice Template</Link></li>
             <li><Link href="/how-to-invoice-in-nz" className="text-primary hover:underline">How to Invoice in NZ</Link></li>
+            <li><Link href="/how-to-calculate-gst" className="text-primary hover:underline">How to Calculate GST</Link></li>
+            <li><Link href="/gst-registration-nz" className="text-primary hover:underline">GST Registration Guide</Link></li>
+            <li><Link href="/freelancer-invoice-nz" className="text-primary hover:underline">Freelancer Invoice Guide</Link></li>
             <li><Link href="/nzbn" className="text-primary hover:underline">What is an NZBN?</Link></li>
           </ul>
         </div>
