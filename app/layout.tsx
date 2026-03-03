@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Free NZ Invoice Generator – Create GST Invoices Instantly, No Sign-Up",
+    default: "Free NZ Invoice Generator – No Sign-Up Required",
     template: "%s | NZ Invoice Generator",
   },
   description:
@@ -223,3 +223,4 @@ export default function RootLayout({
     </html>
   );
 }
+
