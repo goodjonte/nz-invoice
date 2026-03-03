@@ -16,19 +16,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Free NZ Invoice Generator - GST Invoice Template",
+    default: "Free NZ Invoice Generator – Create GST Invoices Instantly, No Sign-Up",
     template: "%s | NZ Invoice Generator",
   },
   description:
-    "Free online NZ GST invoice generator. Create professional invoices with 15% GST calculations, multiple templates, and instant PDF download. Perfect for NZ freelancers and sole traders.",
+    "Create professional GST invoices for free in seconds. No sign-up, no software, no cost. Built for NZ freelancers, contractors, and sole traders. Includes automatic 15% GST calculations and multiple templates.",
   metadataBase: new URL("https://nzinvoice.co.nz"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Free NZ Invoice Generator - GST Invoice Template",
+    title: "Free NZ Invoice Generator – Create GST Invoices Instantly, No Sign-Up",
     description:
-      "Create professional NZ GST invoices for free. Multiple templates, automatic 15% GST calculations, and instant PDF download.",
+      "Create professional GST invoices for free in seconds. No sign-up, no software, no cost. Built for NZ freelancers, contractors, and sole traders.",
     type: "website",
     locale: "en_NZ",
     siteName: "NZ Invoice Generator",
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free NZ Invoice Generator - GST Invoice Template",
-    description: "Create professional NZ GST invoices for free. Multiple templates, automatic 15% GST calculations, and instant PDF download.",
+    title: "Free NZ Invoice Generator – Create GST Invoices Instantly, No Sign-Up",
+    description: "Create professional GST invoices for free in seconds. No sign-up, no software, no cost. Built for NZ freelancers, contractors, and sole traders.",
     images: ["/og-image.svg"],
   },
 };
